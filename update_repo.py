@@ -9,7 +9,7 @@ import click
 def update_repo(url: str, path: str) -> bool:
     try:
         if not osp.exists(osp.join(path, '.git')):
-            git.Repo.clone_from(url=url, path=path)
+            git.Repo.clone_from(url=url, to_path=path)
         else:
             # let's pull the latest version
             repo = git.Repo(path)
